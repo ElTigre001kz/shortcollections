@@ -99,8 +99,22 @@
         <!-- Добавьте аналогичные блоки для остальных постеров здесь -->
     </div>
 
-
-    
+<!-- <script>
+fetch(scriptURL, { mode: 'cors' })
+  .then(function(response) {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.text();
+  })
+  .then(function(html) {
+    console.log(html);
+    document.getElementById('container').innerHTML = html;
+  })
+  .catch(function(error) {
+    console.error('Fetch error:', error);
+  });
+</script> -->
 
 <script>
     // Получаем параметр 'listName' из текущего URL
@@ -118,24 +132,18 @@ for (var i = 0; i < searchParams.length; i++) {
 }
     console.log("listName:", listName);
 var scriptURL = 'https://script.google.com/macros/s/AKfycbw2hdsepGfDiOVJQp2YqJfQBS21X2uzDA-5zg02hdLQ3YQu-W_myWs_Q28QdR_BUVE/exec?listName=' + listName;
-
-
-
-    fetch(scriptURL, { mode: 'no-cors' })
+   fetch(scriptURL, { mode: 'cors' })
   .then(function(response) {
     if (!response.ok) {
-        // console.log(html);
       throw new Error('Network response was not ok');
     }
     return response.text();
   })
   .then(function(html) {
-    // Вставляем полученный HTML на страницу
-    console.log(html); // Выводим содержимое html в консоль
+    console.log(html);
     document.getElementById('container').innerHTML = html;
   })
   .catch(function(error) {
-      // console.log(html);
     console.error('Fetch error:', error);
   });
   </script>
