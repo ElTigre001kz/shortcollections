@@ -99,14 +99,33 @@
     </div>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+  var currentURL = window.location.href;
+  var listName = new URLSearchParams(currentURL).get('listName');
+  
+  // Теперь вы можете использовать переменную listName в вашем скрипте
+  console.log("listName:", listName);
+  
+  // Ваш остальной JavaScript код может быть добавлен здесь
+  // ...
+});
+    
     // Получаем параметр 'listName' из текущего URL
     var currentURL = window.location.href;
 console.log("Current URL:", currentURL); // Проверьте, что URL правильный
 
-// var listName = new URLSearchParams(currentURL).get('listName');
-
     var currentURL = window.location.href;
 var listName = new URLSearchParams(currentURL).get('listName');
+    var url = new URL(currentURL);
+var searchParams = url.search.slice(1).split('&');
+var listName = null;
+for (var i = 0; i < searchParams.length; i++) {
+    var param = searchParams[i].split('=');
+    if (param[0] === 'listName') {
+        listName = param[1];
+        break;
+    }
+}
     console.log("listName:", listName);
 var scriptURL = 'https://script.google.com/macros/s/AKfycbw2hdsepGfDiOVJQp2YqJfQBS21X2uzDA-5zg02hdLQ3YQu-W_myWs_Q28QdR_BUVE/exec?listName=' + listName;
 
