@@ -156,7 +156,7 @@ if (listName) {
 //     });
 
 fetch(scriptURL)
-  .then(response => response.json())
+  .then(response => response.text())
   .then(data => {
       var html = ''; // Инициализируем пустую строку для хранения HTML-разметки
 console.log(data);
@@ -182,8 +182,9 @@ console.log(data);
         html += movieHTML; // Добавляем HTML в общий результат
         // Делайте здесь то, что вам нужно с данными
       }
+        document.getElementById('container').innerHTML = html;
     }
-      document.getElementById('container').innerHTML = html;
+      
   })
   .catch(error => console.error("Ошибка загрузки данных: " + error));
     
