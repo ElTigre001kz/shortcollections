@@ -122,15 +122,29 @@ for (var i = 0; i < searchParams.length; i++) {
         var scriptURL = 'https://script.google.com/macros/s/AKfycbwALH5nSRNeazsRm4MF_kAYtRAHvZWUXY8siFkbqArjrrv610ttIzC7E1GhVQ4Lbp9GgA/exec?listName=' + encodeURIComponent(listName);
 
         // Отправляем запрос на Google Apps Script
-fetch(scriptURL)
-  .then(response => response.text())
-  .then(htmlData => {
-    // Вставляем HTML без экранирования
-    const container = document.getElementById('container');
-    container.innerHTML = htmlData;
+// fetch(scriptURL)
+//   .then(response => response.text())
+//   .then(htmlData => {
+//     // Вставляем HTML без экранирования
+//     const container = document.getElementById('container');
+//     container.innerHTML = htmlData;
+//   })
+//   .catch(error => {
+//     console.error("Ошибка загрузки данных: " + error);
+//   });
+          fetch(scriptURL, { mode: 'cors' })
+  .then(function(response) {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.text();
   })
-  .catch(error => {
-    console.error("Ошибка загрузки данных: " + error);
+  .then(function(html) {
+    console.log(html);
+    document.getElementById('container').innerHTML = html;
+  })
+  .catch(function(error) {
+    console.error('Fetch error:', error);
   });
 
 
