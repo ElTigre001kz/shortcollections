@@ -158,7 +158,7 @@ if (listName) {
   .then(response => response.json()) // Парсим JSON-ответ
   .then(data => {
     var newData = [];
-console.log(data);
+console.log("data"+data);
 for (var i = 0; i < data.length; i++) {
   var id = data[i][0];
   var id_kp = data[i][1];
@@ -177,6 +177,7 @@ for (var i = 0; i < data.length; i++) {
   };
 
   newData.push(movieData);
+    console.log("newData"+newData);
 }
 
 // Теперь, когда у вас есть массив с данными, вы можете создать и вставить HTML на страницу
@@ -193,7 +194,7 @@ for (var j = 0; j < newData.length; j++) {
 
   html += movieHTML; // Добавляем HTML в общий результат
 }
-      
+    console.log("movieHTML"+movieHTML);  
 console.log("html"+html);
 // Вставляем сгенерированную HTML-разметку в указанный контейнер
 document.getElementById('container').innerHTML = html;
