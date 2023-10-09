@@ -126,7 +126,7 @@ if (listName) {
     .then(response => response.json()) // Парсим JSON-ответ
     .then(data => {
       var html = ''; // Инициализируем пустую строку для хранения HTML-разметки
-
+console.log(data);
       // Итерируем по массиву объектов внутри JSON
       for (var i = 0; i < data.length; i++) {
         var id = data[i][0];
