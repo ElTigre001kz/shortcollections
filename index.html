@@ -141,16 +141,24 @@
     //     console.error('Fetch error:', error);
     //   });
 
-      fetch(scriptURL)
-      .then(function(response) {
+      // fetch(scriptURL)
+      // .then(function(response) {
           
-        return response.text();
-      })
-      .then(function(html) {
-          console.log(html);
-        // Вставляем полученный HTML на страницу
-        document.getElementById('container').innerHTML = html;
-      });
+      //   return response.text();
+      // })
+      // .then(function(html) {
+      //     console.log(html);
+      //   // Вставляем полученный HTML на страницу
+      //   document.getElementById('container').innerHTML = html;
+      // });
+
+      fetch(scriptURL)
+  .then(function(response) {
+    return response.text();
+  })
+  .then(function(html) {
+    document.getElementById('container').insertAdjacentHTML('beforeend', html);
+  });
   }
 </script>
   
