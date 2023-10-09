@@ -129,6 +129,7 @@ fetch(scriptURL)
   .then(function(data) {
     // Цикл для парсинга данных и создания HTML
       console.log(data);
+      console.log(data.length);
     var html = '';
     for (var i = 0; i < data.length; i++) {
       var imageUrl = data[i][0];
@@ -150,7 +151,7 @@ fetch(scriptURL)
     }
 console.log(html);
     // Вставка HTML в элемент с id "container"
-    document.getElementById('container').innerHTML = html;
+    // document.getElementById('container').innerHTML = html;
   })
   .catch(function(error) {
     console.error('Произошла ошибка:', error);
