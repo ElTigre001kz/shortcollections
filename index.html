@@ -60,6 +60,7 @@
             display: none;
         }
     </style>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -98,6 +99,44 @@
         <!-- Добавьте аналогичные блоки для остальных постеров здесь -->
     </div>
 
+    <script>
+    // Получаем параметр 'listName' из текущего URL
+    var currentURL = window.location.href;
+    console.log("Current URL:", currentURL); // Проверьте, что URL правильный
+    var url = new URL(currentURL);
+    var searchParams = url.search.slice(1).split('&');
+    var listName = null;
+    for (var i = 0; i < searchParams.length; i++) {
+      var param = searchParams[i].split('=');
+      if (param[0] === 'listName') {
+        listName = param[1];
+        break;
+      }
+    }
+    console.log("listName:", listName);
+
+    var scriptURL = 'https://script.google.com/macros/s/AKfycbw2hdsepGfDiOVJQp2YqJfQBS21X2uzDA-5zg02hdLQ3YQu-W_myWs_Q28QdR_BUVE/exec?listName=' + listName;
+
+    fetch(scriptURL, { mode: 'cors' })
+      .then(function(response) {
+        if (!response.ok) {
+          console.log("Network response was not ok");
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(function(html) {
+        // Вставляем полученный HTML на страницу
+        console.log(html); // Выводим содержимое html в консоль
+        document.getElementById('container').innerHTML = html;
+      })
+      .catch(function(error) {
+        console.error('Fetch error:', error);
+      });
+  </script>
+
+    
+<!-- 
 <script>
     // Получаем параметр 'listName' из текущего URL
     var currentURL = window.location.href;
@@ -115,15 +154,7 @@ for (var i = 0; i < searchParams.length; i++) {
     console.log("listName:", listName);
 var scriptURL = 'https://script.google.com/macros/s/AKfycbw2hdsepGfDiOVJQp2YqJfQBS21X2uzDA-5zg02hdLQ3YQu-W_myWs_Q28QdR_BUVE/exec?listName=' + listName;
 
-// fetch(scriptURL, { mode: 'no-cors' })
-//   .then(function(response) {
-//     return response.text();
-//   })
-//   .then(function(html) {
-//     // Вставляем полученный HTML на страницу
-      
-//     document.getElementById('container').innerHTML = html;
-//   });
+
 
     fetch(scriptURL, { mode: 'no-cors' })
   .then(function(response) {
@@ -142,7 +173,7 @@ var scriptURL = 'https://script.google.com/macros/s/AKfycbw2hdsepGfDiOVJQp2YqJfQ
       // console.log(html);
     console.error('Fetch error:', error);
   });
-  </script>
+  </script> -->
 
 </body>
 </html>
