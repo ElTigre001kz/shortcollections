@@ -148,11 +148,12 @@ for (var key in data) {
 
   // Генерируем HTML для каждой записи
   var movieHTML = '<div class="poster">' +
-                  '<img src="' + imageUrl + '" alt="' + movieTitle + ' ('+year+'/'+quality+')">' +
+                   '<a href="' + urlMovie + '" target="_blank"><img src="' + imageUrl + '" alt=""></a>' +
+                  // '<img src="' + imageUrl + '" alt="' + movieTitle + ' ('+year+'/'+quality+')">' +
                   '<div class="overlay">' +
                   '<div class="title">' + movieTitle + ' ('+year+'/'+quality+')</div>' +
                   '<div class="rating">⭐️ KP: ' + kpRating + ' / IMDb: ' + imdbRating + '</div>' +
-                  '<a href="' + urlMovie + '">Смотреть фильм</a>' +
+                  // '<a href="' + urlMovie + '">Смотреть фильм</a>' +
                   '</div>' +
                   '</div>';
 
