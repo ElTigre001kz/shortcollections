@@ -122,12 +122,11 @@ for (var i = 0; i < searchParams.length; i++) {
         var scriptURL = 'https://script.google.com/macros/s/AKfycbwALH5nSRNeazsRm4MF_kAYtRAHvZWUXY8siFkbqArjrrv610ttIzC7E1GhVQ4Lbp9GgA/exec?listName=' + encodeURIComponent(listName);
 
         // Отправляем запрос на Google Apps Script
-измени этот код чтоб он получал параметр из ссылки и затем отправлял его в гугл скрипт по ссылке с параметром и затем получал ответ и вставлял на страницу с помошью document.getElementById('container').innerHTML = htmlData; а вот сам скрипт который нужно изменить var url = 'https://script.google.com/macros/s/AKfycbwALH5nSRNeazsRm4MF_kAYtRAHvZWUXY8siFkbqArjrrv610ttIzC7E1GhVQ4Lbp9GgA/exec';
-            fetch(scriptURL)
+fetch(scriptURL)
         .then(response => response.text()) // Получаем ответ как текст
         .then(htmlData => {
             // Вставляем полученный HTML код в элемент с id 'container'
-            console.log(html);
+            console.log(htmlData);
             document.getElementById('container').innerHTML = htmlData;
         })
         .catch(error => {
