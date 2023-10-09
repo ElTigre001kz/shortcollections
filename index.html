@@ -118,9 +118,11 @@ fetch(scriptURL, { mode: 'cors' })
 
 <script>
     // Получаем параметр 'listName' из текущего URL
+// Получаем параметр 'listName' из текущего URL
     var currentURL = window.location.href;
-console.log("Current URL:", currentURL); // Проверьте, что URL правильный
     var url = new URL(currentURL);
+    var listName = url.searchParams.get("listName");
+var url = new URL(currentURL);
 var searchParams = url.search.slice(1).split('&');
 var listName = null;
 for (var i = 0; i < searchParams.length; i++) {
@@ -130,22 +132,55 @@ for (var i = 0; i < searchParams.length; i++) {
         break;
     }
 }
-    console.log("listName:", listName);
-var scriptURL = 'https://script.google.com/macros/s/AKfycbw2hdsepGfDiOVJQp2YqJfQBS21X2uzDA-5zg02hdLQ3YQu-W_myWs_Q28QdR_BUVE/exec?listName=' + listName;
-   fetch(scriptURL, { mode: 'cors' })
-  .then(function(response) {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+    // Проверяем, есть ли параметр 'listName' в URL
+    if (listName) {
+        // Формируем URL для Google Apps Script с параметром 'listName'
+        var scriptURL = 'https://script.google.com/macros/s/AKfycbwALH5nSRNeazsRm4MF_kAYtRAHvZWUXY8siFkbqArjrrv610ttIzC7E1GhVQ4Lbp9GgA/exec?listName=' + encodeURIComponent(listName);
+
+        // Отправляем запрос на Google Apps Script
+        fetch(scriptURL)
+            .then(response => response.json())
+            .then(data => {
+                var jsonData = JSON.stringify(data, null, 2);
+
+                // Вставляем полученные данные в элемент с id 'container'
+                document.getElementById('container').innerHTML = jsonData;
+            })
+            .catch(error => {
+                console.error("Ошибка загрузки данных: " + error);
+            });
+    } else {
+        console.error("Параметр 'listName' отсутствует в URL");
     }
-    return response.text();
-  })
-  .then(function(html) {
-    console.log(html);
-    document.getElementById('container').innerHTML = html;
-  })
-  .catch(function(error) {
-    console.error('Fetch error:', error);
-  });
+    
+//     var currentURL = window.location.href;
+// console.log("Current URL:", currentURL); // Проверьте, что URL правильный
+//     var url = new URL(currentURL);
+// var searchParams = url.search.slice(1).split('&');
+// var listName = null;
+// for (var i = 0; i < searchParams.length; i++) {
+//     var param = searchParams[i].split('=');
+//     if (param[0] === 'listName') {
+//         listName = param[1];
+//         break;
+//     }
+// }
+//     console.log("listName:", listName);
+// var scriptURL = 'https://script.google.com/macros/s/AKfycbw2hdsepGfDiOVJQp2YqJfQBS21X2uzDA-5zg02hdLQ3YQu-W_myWs_Q28QdR_BUVE/exec?listName=' + listName;
+//    fetch(scriptURL, { mode: 'cors' })
+//   .then(function(response) {
+//     if (!response.ok) {
+//       throw new Error('Network response was not ok');
+//     }
+//     return response.text();
+//   })
+//   .then(function(html) {
+//     console.log(html);
+//     document.getElementById('container').innerHTML = html;
+//   })
+//   .catch(function(error) {
+//     console.error('Fetch error:', error);
+//   });
   </script>
 
 </body>
