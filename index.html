@@ -146,16 +146,23 @@ for (var key in data) {
   var imageUrl = "https://st.kp.yandex.net/images/film_iphone/iphone360_"+id_kp+".jpg";
   var urlMovie = "https://eltigre001kz.github.io/player.html?video=//harsh-building.cdnmovies-stream.online/content/'+id+'/iframe?domain=searchwatch.bot";
 
+    <div class="poster">
+  <a href="https://eltigre001kz.github.io/player.html?video=//harsh-building.cdnmovies-stream.online/content/'+id+'/iframe?domain=searchwatch.bot" target="_blank">
+    <img src="https://st.kp.yandex.net/images/film_iphone/iphone360_48850.jpg" alt="">
+    <div class="overlay"><div class="title">Открытое море (2003/BDRip)</div>
+  <div class="rating">⭐️ KP: 6.172 / IMDb: 5.8</div></div>
+  </a>
+  
+</div>
   // Генерируем HTML для каждой записи
   var movieHTML = '<div class="poster">' +
-                   '<a href="' + urlMovie + '" target="_blank"><img src="' + imageUrl + '" alt=""></a>' +
-                  // '<img src="' + imageUrl + '" alt="' + movieTitle + ' ('+year+'/'+quality+')">' +
+                   '<a href="' + urlMovie + '" target="_blank"><img src="' + imageUrl + '" alt="' + movieTitle + '">' +
                   '<div class="overlay">' +
                   '<div class="title">' + movieTitle + ' ('+year+'/'+quality+')</div>' +
                   '<div class="rating">⭐️ KP: ' + kpRating + ' / IMDb: ' + imdbRating + '</div>' +
-                  // '<a href="' + urlMovie + '">Смотреть фильм</a>' +
-                  '</div>' +
-                  '</div>';
+                   '</a>' +
+                  '</div>' +;
+                  // '</div>';
 
   // Вставляем сгенерированный HTML в элемент с id "container"
   document.getElementById('container').innerHTML += movieHTML;
