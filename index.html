@@ -180,19 +180,20 @@ for (var i = 0; i < data.length; i++) {
 }
 
 // Теперь, когда у вас есть массив с данными, вы можете создать и вставить HTML на страницу
-// var html = '';
+var html = '';
 
-// for (var j = 0; j < newData.length; j++) {
-//   var movieHTML = '<div class="poster">' +
-//     '<img src="' + newData[j].imageUrl + '" alt="' + newData[j].title + '">' +
-//     '<div class="overlay">' +
-//     '<div class="title">' + newData[j].title + '</div>' +
-//     '<div class="rating">⭐️ KP: ' + newData[j].kpRating + ' / IMDb: ' + newData[j].imdbRating + '</div>' +
-//     '</div>' +
-//     '</div>';
+for (var j = 0; j < newData.length; j++) {
+  var movieHTML = '<div class="poster">' +
+    '<img src="' + newData[j].imageUrl + '" alt="' + newData[j].title + '">' +
+    '<div class="overlay">' +
+    '<div class="title">' + newData[j].title + '</div>' +
+    '<div class="rating">⭐️ KP: ' + newData[j].kpRating + ' / IMDb: ' + newData[j].imdbRating + '</div>' +
+    '</div>' +
+    '</div>';
 
-//   html += movieHTML; // Добавляем HTML в общий результат
-// }
+  html += movieHTML; // Добавляем HTML в общий результат
+}
+      
 console.log("html"+html);
 // Вставляем сгенерированную HTML-разметку в указанный контейнер
 document.getElementById('container').innerHTML = html;
@@ -201,6 +202,7 @@ document.getElementById('container').innerHTML = html;
     console.error("Ошибка загрузки данных: " + error);
   });
 }
+    
 </script>
 </body>
 </html>
