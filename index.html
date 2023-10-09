@@ -100,7 +100,7 @@
     </div>
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 // Получаем параметр 'listName' из текущего URL
     var currentURL = window.location.href;
     var url = new URL(currentURL);
@@ -164,10 +164,49 @@ for (var i = 0; i < searchParams.length; i++) {
     // } else {
     //     console.error("Параметр 'listName' отсутствует в URL");
     // }
-</script>
+</script> -->
 
   
-   
+   <script type="text/javascript">
+  // Получаем параметр 'listName' из текущего URL
+  var currentURL = window.location.href;
+  var url = new URL(currentURL);
+  var listName = url.searchParams.get("listName");
+
+  var url = new URL(currentURL);
+  var searchParams = url.search.slice(1).split('&');
+  var listName = null;
+  for (var i = 0; i < searchParams.length; i++) {
+    var param = searchParams[i].split('=');
+    if (param[0] === 'listName') {
+      listName = param[1];
+      break;
+    }
+  }
+
+  console.log(listName);
+
+  // Проверяем, есть ли параметр 'listName' в URL
+  if (listName) {
+    // Формируем URL для Google Apps Script с параметром 'listName'
+    var scriptURL = 'https://script.google.com/macros/s/AKfycbwALH5nSRNeazsRm4MF_kAYtRAHvZWUXY8siFkbqArjrrv610ttIzC7E1GhVQ4Lbp9GgA/exec?listName=' + encodeURIComponent(listName);
+
+    fetch(scriptURL, { mode: 'cors' })
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(function(html) {
+        console.log(html);
+        document.getElementById('container').innerHTML = html;
+      })
+      .catch(function(error) {
+        console.error('Fetch error:', error);
+      });
+  }
+</script>
   
  
 
