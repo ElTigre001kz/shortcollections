@@ -100,73 +100,7 @@
     </div>
 
 
-<!-- <script type="text/javascript">
-// Получаем параметр 'listName' из текущего URL
-    var currentURL = window.location.href;
-    var url = new URL(currentURL);
-    var listName = url.searchParams.get("listName");
-var url = new URL(currentURL);
-var searchParams = url.search.slice(1).split('&');
-var listName = null;
-for (var i = 0; i < searchParams.length; i++) {
-    var param = searchParams[i].split('=');
-    if (param[0] === 'listName') {
-        listName = param[1];
-        break;
-    }
-}
-    console.log(listName);
-    // Проверяем, есть ли параметр 'listName' в URL
-    if (listName) {
-        // Формируем URL для Google Apps Script с параметром 'listName'
-        var scriptURL = 'https://script.google.com/macros/s/AKfycbwALH5nSRNeazsRm4MF_kAYtRAHvZWUXY8siFkbqArjrrv610ttIzC7E1GhVQ4Lbp9GgA/exec?listName=' + encodeURIComponent(listName);
 
-        // Отправляем запрос на Google Apps Script
-// fetch(scriptURL)
-//   .then(response => response.text())
-//   .then(htmlData => {
-//     // Вставляем HTML без экранирования
-//     const container = document.getElementById('container');
-//     container.innerHTML = htmlData;
-//   })
-//   .catch(error => {
-//     console.error("Ошибка загрузки данных: " + error);
-//   });
-          fetch(scriptURL, { mode: 'cors' })
-  .then(function(response) {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.text();
-  })
-  .then(function(html) {
-    console.log(html);
-    document.getElementById('container').innerHTML = html;
-  })
-  .catch(function(error) {
-    console.error('Fetch error:', error);
-  });
-
-
-
-        
-    //         fetch(scriptURL)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             var jsonData = JSON.stringify(data, null, 2);
-
-    //             // Вставляем полученные данные в элемент с id 'container'
-    //             document.getElementById('container').innerHTML = jsonData;
-    //         })
-    //         .catch(error => {
-    //             console.error("Ошибка загрузки данных: " + error);
-    //         });
-    // } else {
-    //     console.error("Параметр 'listName' отсутствует в URL");
-    // }
-</script> -->
-
-  
   <script type="text/javascript">
   // Получаем параметр 'listName' из текущего URL
   var currentURL = window.location.href;
@@ -180,11 +114,10 @@ for (var i = 0; i < searchParams.length; i++) {
     var param = searchParams[i].split('=');
     if (param[0] === 'listName') {
       listName = param[1];
+        console.log(listName);
       break;
     }
   }
-
-  console.log(listName);
 
   // Проверяем, есть ли параметр 'listName' в URL
   if (listName) {
@@ -196,6 +129,7 @@ for (var i = 0; i < searchParams.length; i++) {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
+          console.log(response.text());
         return response.text();
       })
       .then(function(html) {
