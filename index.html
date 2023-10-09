@@ -122,7 +122,7 @@ if (listName) {
   var scriptURL = 'https://script.google.com/macros/s/AKfycbwALH5nSRNeazsRm4MF_kAYtRAHvZWUXY8siFkbqArjrrv610ttIzC7E1GhVQ4Lbp9GgA/exec?listName=' + encodeURIComponent(listName);
 
   // Отправить параметр в Google Script
-fetch('scriptURL)
+fetch(scriptURL)
   .then(function(response) {
     return response.json(); // Предположим, что скрипт возвращает JSON
   })
