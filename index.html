@@ -122,22 +122,36 @@ for (var i = 0; i < searchParams.length; i++) {
 
         // Отправляем запрос на Google Apps Script
 
-fetch(scriptURL)
-    .then(response => response.text()) // Получаем HTML вместо JSON
-    // .then(htmlData => {
-    //     // Вставляем полученный HTML код в элемент с id 'container'
-    //     document.getElementById('container').innerHTML = htmlData;
-    // })
-    .then(htmlData => {
-    // Выводим полученный HTML код в консоль
-    console.log('Полученный HTML код:', htmlData);
+// fetch(scriptURL)
+//     .then(response => response.text()) // Получаем HTML вместо JSON
+//     // .then(htmlData => {
+//     //     // Вставляем полученный HTML код в элемент с id 'container'
+//     //     document.getElementById('container').innerHTML = htmlData;
+//     // })
+//     .then(htmlData => {
+//     // Выводим полученный HTML код в консоль
+//     console.log('Полученный HTML код:', htmlData);
 
-    // Вставляем полученный HTML код в элемент с id 'container'
-    document.getElementById('container').innerHTML = htmlData;
-})
-    .catch(error => {
-        console.error("Ошибка загрузки данных: " + error);
-    });
+//     // Вставляем полученный HTML код в элемент с id 'container'
+//     document.getElementById('container').innerHTML = htmlData;
+// })
+//     .catch(error => {
+//         console.error("Ошибка загрузки данных: " + error);
+//     });
+            fetch(scriptURL)
+            .then(response => response.json())
+            .then(data => {
+                var jsonData = JSON.stringify(data, null, 2);
+
+                // Вставляем полученные данные в элемент с id 'container'
+                document.getElementById('container').innerHTML = jsonData;
+            })
+            .catch(error => {
+                console.error("Ошибка загрузки данных: " + error);
+            });
+    } else {
+        console.error("Параметр 'listName' отсутствует в URL");
+    }
 </script>
 
   
