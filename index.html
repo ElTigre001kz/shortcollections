@@ -141,7 +141,7 @@ fetch(scriptURL)
   .then(response => response.json())
   .then(data => {
     var html = '';
-
+console.log(data);
     for (var i = 1; i < data.length; i++) {
       var id = data[i][0];
       var id_kp = data[i][1];
