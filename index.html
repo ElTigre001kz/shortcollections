@@ -129,12 +129,12 @@ if (listName) {
 console.log(data);
       // Итерируем по массиву объектов внутри JSON
       for (var i = 0; i < data.length; i++) {
-        var id = data[i].data[0];
-        var id_kp = data[i].data[1];
-        var movieTitle = data[i].data[3];
-        var year = data[i].data[4];
-        var kpRating = data[i].data[6];
-        var imdbRating = data[i].data[7];
+        var id = data.data[i][0];
+        var id_kp = data.data[i][1];
+        var movieTitle = data.data[i][2];
+        var year = data.data[i][3];
+        var kpRating = data.data[i][4];
+        var imdbRating = data.data[i][5];
         var imageUrl = "https://st.kp.yandex.net/images/film_iphone/iphone360_" + id_kp + ".jpg";
 
         var movieHTML = '<div class="poster">' +
