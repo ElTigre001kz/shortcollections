@@ -121,6 +121,7 @@ fetch(scriptURL, { mode: 'no-cors' })
   })
   .then(function(html) {
     // Вставляем полученный HTML на страницу
+      console.log(html);
     document.getElementById('container').innerHTML = html;
   });
   </script>
