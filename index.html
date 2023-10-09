@@ -127,7 +127,16 @@ fetch(scriptURL)
     .then(htmlData => {
         // Вставляем полученный HTML код в элемент с id 'container'
         console.log(htmlData);
-        document.getElementById('container').innerHTML = htmlData;
+        function escapeHTML(html) {
+    var escapeElement = document.createElement('textarea');
+    escapeElement.textContent = html;
+    return escapeElement.innerHTML;
+}
+
+// Здесь предполагается, что ваш HTML-код хранится в переменной htmlData
+var escapedHTML = escapeHTML(htmlData);
+document.getElementById('container').innerHTML = escapedHTML;
+        // document.getElementById('container').innerHTML = htmlData;
     })
     .catch(error => {
         console.error("Ошибка загрузки данных: " + error);
