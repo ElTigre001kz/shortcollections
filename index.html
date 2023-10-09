@@ -99,22 +99,7 @@
         <!-- Добавьте аналогичные блоки для остальных постеров здесь -->
     </div>
 
-<!-- <script>
-fetch(scriptURL, { mode: 'cors' })
-  .then(function(response) {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.text();
-  })
-  .then(function(html) {
-    console.log(html);
-    document.getElementById('container').innerHTML = html;
-  })
-  .catch(function(error) {
-    console.error('Fetch error:', error);
-  });
-</script> -->
+
 <script type="text/javascript">
 // Получаем параметр 'listName' из текущего URL
     var currentURL = window.location.href;
@@ -144,8 +129,11 @@ fetch(scriptURL)
     //     document.getElementById('container').innerHTML = htmlData;
     // })
     .then(htmlData => {
+    // Выводим полученный HTML код в консоль
+    console.log('Полученный HTML код:', htmlData);
+
     // Вставляем полученный HTML код в элемент с id 'container'
-    document.getElementById('container').innerHTML = htmlData.replace(/</g, '&lt;').replace(/\//g, '&#x2F;');
+    document.getElementById('container').innerHTML = htmlData;
 })
     .catch(error => {
         console.error("Ошибка загрузки данных: " + error);
