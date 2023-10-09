@@ -99,23 +99,9 @@
     </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var currentURL = window.location.href;
-  var listName = new URLSearchParams(currentURL).get('listName');
-  
-  // Теперь вы можете использовать переменную listName в вашем скрипте
-  console.log("listName:", listName);
-  
-  // Ваш остальной JavaScript код может быть добавлен здесь
-  // ...
-});
-    
     // Получаем параметр 'listName' из текущего URL
     var currentURL = window.location.href;
 console.log("Current URL:", currentURL); // Проверьте, что URL правильный
-
-    var currentURL = window.location.href;
-var listName = new URLSearchParams(currentURL).get('listName');
     var url = new URL(currentURL);
 var searchParams = url.search.slice(1).split('&');
 var listName = null;
