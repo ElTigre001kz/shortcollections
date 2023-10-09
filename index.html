@@ -103,6 +103,7 @@
 
 <script type="text/javascript">
   // Получаем параметр 'listName' из текущего URL
+     var currentURL = window.location.href;
   var url = new URL(currentURL);
   var searchParams = url.search.slice(1).split('&');
   var listName = null;
