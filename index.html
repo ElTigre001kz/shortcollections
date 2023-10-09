@@ -123,18 +123,15 @@ for (var i = 0; i < searchParams.length; i++) {
 
         // Отправляем запрос на Google Apps Script
 fetch(scriptURL)
-        .then(response => response.text()) // Получаем ответ как текст
-        .then(htmlData => {
-            // Вставляем полученный HTML код в элемент с id 'container'
-            console.log(htmlData);
-            document.getElementById('container').innerHTML = htmlData;
-        })
-        .catch(error => {
-            console.error("Ошибка загрузки данных: " + error);
-        });
-} else {
-    console.error("Параметр 'listName' отсутствует в URL");
-}
+    .then(response => response.text()) // Получаем ответ как текст
+    .then(htmlData => {
+        // Вставляем полученный HTML код в элемент с id 'container'
+        console.log(htmlData);
+        document.getElementById('container').innerHTML = htmlData;
+    })
+    .catch(error => {
+        console.error("Ошибка загрузки данных: " + error);
+    });
 
 
 
