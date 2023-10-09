@@ -101,7 +101,7 @@
 
 
 
-  <script type="text/javascript">
+<!--   <script type="text/javascript">
   // Получаем параметр 'listName' из текущего URL
   var currentURL = window.location.href;
   var url = new URL(currentURL);
@@ -160,9 +160,30 @@
     document.getElementById('container').insertAdjacentHTML('beforeend', html);
   });
   }
-</script>
+</script> -->
   
- 
+ <script type="text/javascript">
+  // Получаем параметр 'listName' из текущего URL
+  var currentURL = window.location.href;
+  var url = new URL(currentURL);
+  var listName = url.searchParams.get("listName");
+
+  // Проверяем, есть ли параметр 'listName' в URL
+  if (listName) {
+    // Формируем URL для Google Apps Script с параметром 'listName'
+    var scriptURL = 'https://script.google.com/macros/s/AKfycbwALH5nSRNeazsRm4MF_kAYtRAHvZWUXY8siFkbqArjrrv610ttIzC7E1GhVQ4Lbp9GgA/exec?listName=' + encodeURIComponent(listName);
+
+    fetch(scriptURL)
+      .then(function(response) {
+        return response.text();
+      })
+      .then(function(html) {
+        console.log(html);
+        // Вставляем полученный HTML на страницу
+        document.getElementById('container').innerHTML = html;
+      });
+  }
+</script>
 
 </body>
 </html>
