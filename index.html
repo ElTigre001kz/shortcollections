@@ -115,9 +115,8 @@ fetch(scriptURL, { mode: 'cors' })
     console.error('Fetch error:', error);
   });
 </script> -->
-
-<script> 
-  // Получаем параметр 'listName' из текущего URL
+<script type="text/javascript">
+// Получаем параметр 'listName' из текущего URL
     var currentURL = window.location.href;
     var url = new URL(currentURL);
     var listName = url.searchParams.get("listName");
@@ -148,6 +147,7 @@ fetch(scriptURL)
         console.error("Ошибка загрузки данных: " + error);
     });
 </script>
+
   
    
   
