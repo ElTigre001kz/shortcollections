@@ -174,14 +174,16 @@
     var scriptURL = 'https://script.google.com/macros/s/AKfycbwALH5nSRNeazsRm4MF_kAYtRAHvZWUXY8siFkbqArjrrv610ttIzC7E1GhVQ4Lbp9GgA/exec?listName=' + encodeURIComponent(listName);
 
     fetch(scriptURL)
-      .then(function(response) {
-        return response.text();
-      })
-      .then(function(html) {
-        console.log(html);
-        // Вставляем полученный HTML на страницу
-        document.getElementById('container').innerHTML = html;
-      });
+  .then(response => response.text())
+  .then(html => {
+    // Здесь вы можете обработать полученный HTML
+    console.log(html);
+    // Например, вставить его в элемент на веб-странице
+    document.getElementById('container').innerHTML = html;
+  })
+  .catch(error => {
+    console.error('Произошла ошибка:', error);
+  });
   }
 </script>
 
