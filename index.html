@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Постеры</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .poster {
+            width: 48%;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .poster img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+    border: 1px solid white;
+    box-shadow: 0px 5px 50px -7px #5c009f;
+        }
+
+        .poster .overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgb(0, 0, 0));
+            padding: 70% 0 10px 0;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Выравниваем текст по центру горизонтально */
+            text-align: center; /* Выравниваем текст по центру горизонтально */
+            border-radius: 10px;
+        }
+
+        .poster .title {
+            font-size: 45px;
+            font-weight: bold;
+            /*margin-bottom: 5px;*/
+            /*white-space: nowrap;  Запрещаем перенос текста */
+            overflow: hidden; /* Скрываем лишний текст, который может выходить за границы */
+            text-overflow: ellipsis; /* Добавляем многоточие для обрезанного текста */
+            margin-top: auto; /* Прижимаем к нижней части блока */
+        }
+
+        .poster .rating {
+            font-size: 40px;
+            /*white-space: nowrap;  Запрещаем перенос текста */
+            overflow: hidden; /* Скрываем лишний текст, который может выходить за границы */
+            text-overflow: ellipsis; /* Добавляем многоточие для обрезанного текста */
+        }
+
+        /* Удаляем стили для описания и кнопки */
+        .poster .description,
+        .poster .button {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+  <div class="container" id="container"></div>
+
+    <div class="container">
+        <div class="poster">
+            <img src="https://st.kp.yandex.net/images/film_big/1219177.jpg" alt="Человек-паук">
+            <div class="overlay">
+                <div class="title">Человек-паук: Паутина вселенных</div>
+                <div class="rating">⭐️ KP: 8.6 / IMDb: 8.9</div>
+            </div>
+        </div>
+        <div class="poster">
+            <img src="https://st.kp.yandex.net/images/film_big/1219177.jpg" alt="Человек-паук">
+            <div class="overlay">
+                <div class="title">Человек-паук: Паутина вселенных</div>
+                <div class="rating">⭐️ KP: 8.6 / IMDb: 8.9</div>
+            </div>
+        </div>
+        <div class="poster">
+            <img src="https://st.kp.yandex.net/images/film_big/1219177.jpg" alt="Человек-паук">
+            <div class="overlay">
+                <div class="title">Человек-паук: Паутина вселенных</div>
+
+                <div class="rating">⭐️ KP: 8.6 / IMDb: 8.9</div>
+            </div>
+        </div>
+        <div class="poster">
+            <img src="https://st.kp.yandex.net/images/film_big/1219177.jpg" alt="Человек-паук">
+            <div class="overlay">
+                <div class="title">Человек-паук: Паутина вселенных</div>
+                <div class="rating">⭐️ KP: 8.6 / IMDb: 8.9</div>
+            </div>
+        </div>
+        <!-- Добавьте аналогичные блоки для остальных постеров здесь -->
+    </div>
+
+<script>
+    // Получаем параметр 'listName' из текущего URL
+    var currentURL = window.location.href;
+    var listName = new URLSearchParams(currentURL).get('listName');
+    
+    // Формируем URL для вашего Google Apps Script (замените 'YOUR_SCRIPT_ID' на фактический ID вашего скрипта)
+    var scriptURL = 'https://script.google.com/macros/s/AKfycbw2hdsepGfDiOVJQp2YqJfQBS21X2uzDA-5zg02hdLQ3YQu-W_myWs_Q28QdR_BUVE/exec?listName=' + listName;
+    
+    // Выполняем GET-запрос к Google Apps Script, чтобы получить HTML
+    fetch(scriptURL)
+      .then(function(response) {
+        return response.text();
+      })
+      .then(function(html) {
+        // Вставляем полученный HTML на страницу
+        document.getElementById('container').innerHTML = html;
+      });
+  </script>
+
+</body>
+</html>
