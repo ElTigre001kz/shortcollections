@@ -139,10 +139,14 @@ for (var i = 0; i < searchParams.length; i++) {
 
 fetch(scriptURL)
     .then(response => response.text()) // Получаем HTML вместо JSON
+    // .then(htmlData => {
+    //     // Вставляем полученный HTML код в элемент с id 'container'
+    //     document.getElementById('container').innerHTML = htmlData;
+    // })
     .then(htmlData => {
-        // Вставляем полученный HTML код в элемент с id 'container'
-        document.getElementById('container').innerHTML = htmlData;
-    })
+    // Вставляем полученный HTML код в элемент с id 'container'
+    document.getElementById('container').innerHTML = htmlData.replace(/</g, '&lt;').replace(/\//g, '&#x2F;');
+})
     .catch(error => {
         console.error("Ошибка загрузки данных: " + error);
     });
