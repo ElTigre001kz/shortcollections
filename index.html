@@ -129,10 +129,9 @@ fetch(scriptURL)
   .then(function(data) {
     // Цикл для парсинга данных и создания HTML
       console.log(data);
+     var html = '';
+      var data = JSON.parse(data);
       console.log(data.length);
-    var html = '';
-      var data = JSON.parse(jsonData);
-
 for (var key in data) {
   var id = data[key][0];
   var id_kp = data[key][1];
