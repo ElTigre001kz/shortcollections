@@ -131,26 +131,34 @@ fetch(scriptURL)
       console.log(data);
       console.log(data.length);
     var html = '';
-    for (var i = 0; i < data.length; i++) {
-    var movieData = data[i];
-    
-    var imageUrl = movieData[0]; // Путь к изображению
-    var movieTitle = movieData[1]; // Название фильма
-    var kpRating = movieData[2]; // Рейтинг на КиноПоиске
-    var imdbRating = movieData[3]; // Рейтинг на IMDb
-    
-    // Генерация HTML для каждой записи
-    var movieHTML = '<div class="poster">' +
-                    '<img src="' + imageUrl + '" alt="' + movieTitle + '">' +
-                    '<div class="overlay">' +
-                    '<div class="title">' + movieTitle + '</div>' +
-                    '<div class="rating">⭐️ KP: ' + kpRating + ' / IMDb: ' + imdbRating + '</div>' +
-                    '</div>' +
-                    '</div>';
-    
-    html += movieHTML;
-  }
-console.log(html);
+      var data = JSON.parse(jsonData);
+
+for (var key in data) {
+  var id = data[key][0];
+  var id_kp = data[key][1];
+  var movieTitle = data[key][3];
+  var year = data[key][4];
+  var quality = data[key][5];
+  var kpRating = data[key][6];  
+  var imdbRating = data[key][7];
+  var imageUrl = "https://st.kp.yandex.net/images/film_iphone/iphone360_"+id_kp+".jpg";
+  var urlMovie = "https://eltigre001kz.github.io/player.html?video=//harsh-building.cdnmovies-stream.online/content/'+id+'/iframe?domain=searchwatch.bot";
+
+  // Генерируем HTML для каждой записи
+  var movieHTML = '<div class="poster">' +
+                  '<img src="' + imageUrl + '" alt="' + movieTitle + ' ('+year+'/'+quality+')">' +
+                  '<div class="overlay">' +
+                  '<div class="title">' + movieTitle + ' ('+year+'/'+quality+') '</div>' +
+                  '<div class="rating">⭐️ KP: ' + kpRating + ' / IMDb: ' + imdbRating + '</div>' +
+                  '<a href="' + urlMovie + '">Смотреть фильм</a>' +
+                  '</div>' +
+                  '</div>';
+
+  // Вставляем сгенерированный HTML в элемент с id "container"
+  document.getElementById('container').innerHTML += movieHTML;
+}
+   
+console.log(movieHTML);
     // Вставка HTML в элемент с id "container"
     // document.getElementById('container').innerHTML = html;
   })
