@@ -157,31 +157,45 @@ if (listName) {
  fetch(scriptURL)
   .then(response => response.json()) // Парсим JSON-ответ
   .then(data => {
-    var html = ''; // Инициализируем пустую строку для хранения HTML-разметки
-    console.log(data);
-      
-    for (var i = 0; i < data.length; i++) {
-      var id = data[i][0];
-      var id_kp = data[i][1];
-      var movieTitle = data[i][2];
-      var year = data[i][3];
-      var kpRating = data[i][4];
-      var imdbRating = data[i][5];
-      var imageUrl = "https://st.kp.yandex.net/images/film_iphone/iphone360_" + id_kp + ".jpg";
+    var newData = [];
+console.log(data);
+for (var i = 0; i < data.length; i++) {
+  var id = data[i][0];
+  var id_kp = data[i][1];
+  var movieTitle = data[i][2];
+  var year = data[i][3];
+  var kpRating = data[i][4];
+  var imdbRating = data[i][5];
+  var imageUrl = "https://st.kp.yandex.net/images/film_big/" + id_kp + ".jpg";
 
-      var movieHTML = '<div class="poster">' +
-        '<img src="' + imageUrl + '" alt="' + movieTitle + ' (' + year + ')">' +
-        '<div class="overlay">' +
-        '<div class="title">' + movieTitle + ' (' + year + ')</div>' +
-        '<div class="rating">⭐️ KP: ' + kpRating + ' / IMDb: ' + imdbRating + '</div>' +
-        '</div>' +
-        '</div>';
+  // Создайте объект для каждого фильма и добавьте его в новый массив
+  var movieData = {
+    imageUrl: imageUrl,
+    title: movieTitle + " (" + year + ")",
+    kpRating: kpRating,
+    imdbRating: imdbRating
+  };
 
-      html += movieHTML; // Добавляем HTML в общий результат
-    }
+  newData.push(movieData);
+}
 
-    // Вставляем сгенерированную HTML-разметку в указанный контейнер
-    document.getElementById('container').innerHTML = html;
+// Теперь, когда у вас есть массив с данными, вы можете создать и вставить HTML на страницу
+var html = '';
+
+for (var j = 0; j < newData.length; j++) {
+  var movieHTML = '<div class="poster">' +
+    '<img src="' + newData[j].imageUrl + '" alt="' + newData[j].title + '">' +
+    '<div class="overlay">' +
+    '<div class="title">' + newData[j].title + '</div>' +
+    '<div class="rating">⭐️ KP: ' + newData[j].kpRating + ' / IMDb: ' + newData[j].imdbRating + '</div>' +
+    '</div>' +
+    '</div>';
+
+  html += movieHTML; // Добавляем HTML в общий результат
+}
+console.log(html);
+// Вставляем сгенерированную HTML-разметку в указанный контейнер
+document.getElementById('container').innerHTML = html;
   })
   .catch(error => {
     console.error("Ошибка загрузки данных: " + error);
