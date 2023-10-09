@@ -158,6 +158,8 @@ if (listName) {
 fetch(scriptURL)
   .then(response => response.json())
   .then(data => {
+      var html = ''; // Инициализируем пустую строку для хранения HTML-разметки
+console.log(data);
     for (var key in data) {
       if (data.hasOwnProperty(key) && key.startsWith("data")) {
         var dataArray = data[key];
