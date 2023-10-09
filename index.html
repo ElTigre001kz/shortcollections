@@ -121,23 +121,52 @@
     // Формируем URL для Google Apps Script с параметром 'listName'
     var scriptURL = 'https://script.google.com/macros/s/AKfycbwALH5nSRNeazsRm4MF_kAYtRAHvZWUXY8siFkbqArjrrv610ttIzC7E1GhVQ4Lbp9GgA/exec?listName=' + encodeURIComponent(listName);
 
-    fetch(scriptURL, { mode: 'cors' })
-      .then(function(response) {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.text();
-      })
-      .then(function(html) {
-        console.log(html);
-        // Вставляем полученный HTML контент в элемент с id "container"
-        document.getElementById('container').innerHTML = html;
-      })
-      .catch(function(error) {
-        console.error('Fetch error:', error);
-      });
+    // fetch(scriptURL, { mode: 'cors' })
+    //   .then(function(response) {
+    //     if (!response.ok) {
+    //       throw new Error('Network response was not ok');
+    //     }
+    //     return response.text();
+    //   })
+    //   .then(function(html) {
+    //     console.log(html);
+    //     // Вставляем полученный HTML контент в элемент с id "container"
+    //     document.getElementById('container').innerHTML = html;
+    //   })
+    //   .catch(function(error) {
+    //     console.error('Fetch error:', error);
+    //   });
 
+fetch(scriptURL)
+  .then(response => response.json())
+  .then(data => {
+    var html = '';
 
+    for (var i = 1; i < data.length; i++) {
+      var id = data[i][0];
+      var id_kp = data[i][1];
+      var movieTitle = data[i][3];
+      var year = data[i][4];
+      var kpRating = data[i][6];
+      var imdbRating = data[i][7];
+      var imageUrl = "https://st.kp.yandex.net/images/film_iphone/iphone360_" + id_kp + ".jpg";
+
+      var movieHTML = '<div class="poster">' +
+                      '<img src="' + imageUrl + '" alt="' + movieTitle + ' (' + year + ')">' +
+                      '<div class="overlay">' +
+                      '<div class="title">' + movieTitle + ' (' + year + ')</div>' +
+                      '<div class="rating">⭐️ KP: ' + kpRating + ' / IMDb: ' + imdbRating + '</div>' +
+                      '</div>' +
+                      '</div>';
+
+      html += movieHTML;
+    }
+
+    document.getElementById('container').innerHTML = html;
+  })
+  .catch(error => {
+    console.error("Ошибка загрузки данных: " + error);
+  });
 
   }
 </script>
