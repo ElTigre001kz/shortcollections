@@ -124,7 +124,7 @@ var scriptURL = 'https://script.google.com/macros/s/AKfycbw2hdsepGfDiOVJQp2YqJfQ
     fetch(scriptURL, { mode: 'no-cors' })
   .then(function(response) {
     if (!response.ok) {
-        console.log(html);
+        // console.log(html);
       throw new Error('Network response was not ok');
     }
     return response.text();
