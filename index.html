@@ -105,9 +105,8 @@ function handleResponse(response) {
   // Обработка полученного ответа от Google Apps Script
   console.log(response);
     var html = '';
-      var response = JSON.parse(response);
+      // var response = JSON.parse(response);
       console.log(response.length);
-      console.log(response);
 for (var key in response) {
   var id = response[key][0];
   var id_kp = response[key][1];
