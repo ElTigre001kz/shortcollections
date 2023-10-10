@@ -116,7 +116,7 @@ for (var key in response.data) {
   var kpRating = response.data[key][6];  
   var imdbRating = response.data[key][7];
   var imageUrl = "https://st.kp.yandex.net/images/film_iphone/iphone360_"+id_kp+".jpg";
-  var urlMovie = "https://eltigre001kz.github.io/player.html?video=//harsh-building.cdnmovies-stream.online/content/"+id+"/iframe?domain=searchwatch.bot";
+  var urlMovie = "https://eltigre001kz.github.io/player.html?video=//harsh-building.cdnmovies-stream.online/content/"+id+"/iframe?domain=searchwatch.bot&name="+movieTitle+"&year="+year+"";
   // Генерируем HTML для каждой записи
   var movieHTML = '<div class="poster">' +
                    '<a href="' + urlMovie + '" target="_blank"><img src="' + imageUrl + '" alt="' + movieTitle + '">' +
