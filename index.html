@@ -108,8 +108,20 @@ function handleResponse(response) {
 
 function makeRequest() {
   // Создание скрипта элемента
+ var currentURL = window.location.href;
+var url = new URL(currentURL);
+var searchParams = url.search.slice(1).split('&');
+var listName = null;
+for (var i = 0; i < searchParams.length; i++) {
+  var param = searchParams[i].split('=');
+  if (param[0] === 'listName') {
+    listName = param[1];
+    console.log(listName);
+    break;
+  }
+}
   var script = document.createElement('script');
-  script.src = 'https://script.google.com/macros/s/AKfycbw2hdsepGfDiOVJQp2YqJfQBS21X2uzDA-5zg02hdLQ3YQu-W_myWs_Q28QdR_BUVE/exec?listName=вампиров&callback=handleResponse';
+  script.src = 'https://script.google.com/macros/s/AKfycbw2hdsepGfDiOVJQp2YqJfQBS21X2uzDA-5zg02hdLQ3YQu-W_myWs_Q28QdR_BUVE/exec?listName='+listName+'&callback=handleResponse';
   document.body.appendChild(script);
 }
     window.onload = makeRequest;
