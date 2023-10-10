@@ -1,8 +1,34 @@
+<!-- Сообщаем браузеру как стоит обрабатывать эту страницу -->
 <!DOCTYPE html>
-<html>
+<!-- Оболочка документа, указываем язык содержимого -->
+<html lang="ru">
+<!-- Заголовок страницы, контейнер для других важных данных (не отображается) -->
+
 <head>
-    <title>Постеры</title>
-    <style>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KMH2QQXR');</script>
+<!-- End Google Tag Manager --> 
+
+<!-- <meta charset="UTF-8"> -->
+<link rel="shortcut icon" href="img/favicon.ico">  
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+<!-- <link rel="android-chrome" type="/png" sizes="512x512" href="/img/android-chrome-512x512.png">  -->
+<!-- <link rel="android-chrome" type="/png" sizes="192x192" href="/img/android-chrome-192x192.png">  -->
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+<link rel="stylesheet" href="css/style.css">
+  <!-- Заголовок страницы в браузере -->
+  <title>KinoWatch</title>
+  <!-- Кодировка страницы -->
+  <!-- <meta http-equiv="Content-type" content="text/html;charset=UTF-8" /> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -62,44 +88,72 @@
             display: none;
         } */
     </style>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+<!-- Отображаемое тело страницы -->
+
 <body>
-
-  <div class="container" id="container"></div>
-
-    <div class="container">
-        <div class="poster">
-            <img src="https://st.kp.yandex.net/images/film_big/1219177.jpg" alt="Человек-паук">
-            <div class="overlay">
-                <div class="title">Человек-паук: Паутина вселенных</div>
-                <div class="rating">⭐️ KP: 8.6 / IMDb: 8.9</div>
-            </div>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMH2QQXR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <div class="wrapper">
+ <div class="header">
+      <div class="block__column_logo_mobile">
+        <div class="logo_mobile"><img src="img/logo.png" alt="logo"></div>
+      </div>
+      <div class="block__column_icons_mobile">
+        <div class="icon-image"> <a href="https://www.tiktok.com/@kinowatch_001?lang=ru-RU" target="_blank"><img src="img/tiktok.ico" height="32px" width="auto" alt="tiktok"></a> </div>
+        <div class="icon-image"> <a href="https://vk.com/kinowatch_bot" target="_blank"><img src="img/vk.ico" height="32px" width="auto" alt="iconfinder-social-media-applications-32vk-4102593_113806"></a> </div>
+        <div class="icon-image"> <a href="https://ok.ru/group/58259070976148" target="_blank"><img src="img/ok.ico" height="32px" width="auto" alt="odnoklassniki"></a> </div>
+        <div class="icon-image"> <a href="https://www.instagram.com/kinowatch_001/" target="_blank"><img src="img/insta.ico" height="32px" width="auto" alt="instagram"></a> </div>
+        <div class="icon-image"> <a href="https://www.youtube.com/@kinowatch_001/featured" target="_blank"><img src="img/yt.ico" height="32px" width="auto" alt="youtube"></a> </div>
+        <div class="icon-image"> <a href="https://t.me/SearchWatch_bot" target="_blank"><img src="img/tg.ico" height="32px" width="auto" alt="telegram"></a> </div>
+      </div>
+      <div id="ppb-10" class="block__column_ppb-10">
+           <a href="https://www.instagram.com/microgreenalmatykz9/" target="_blank"><img class="bee-center bee-fixedwidth bee-fullwidthOnMobile" src="img/500х200.png" style="position: inherit;width: 100%;height: auto;" alt="Инстаграм"></a>
         </div>
-        <div class="poster">
-            <img src="https://st.kp.yandex.net/images/film_big/1219177.jpg" alt="Человек-паук">
-            <div class="overlay">
-                <div class="title">Человек-паук: Паутина вселенных</div>
-                <div class="rating">⭐️ KP: 8.6 / IMDb: 8.9</div>
-            </div>
-        </div>
-        <div class="poster">
-            <img src="https://st.kp.yandex.net/images/film_big/1219177.jpg" alt="Человек-паук">
-            <div class="overlay">
-                <div class="title">Человек-паук: Паутина вселенных</div>
-
-                <div class="rating">⭐️ KP: 8.6 / IMDb: 8.9</div>
-            </div>
-        </div>
-        <div class="poster">
-            <img src="https://st.kp.yandex.net/images/film_big/1219177.jpg" alt="Человек-паук">
-            <div class="overlay">
-                <div class="title">Человек-паук: Паутина вселенных</div>
-                <div class="rating">⭐️ KP: 8.6 / IMDb: 8.9</div>
-            </div>
-        </div>
-        <!-- Добавьте аналогичные блоки для остальных постеров здесь -->
     </div>
+    <div class="content">
+      <div class="block__column__left">
+        <div id="logo" class="block__column_logo"><img src="img/logo.png" alt="logo"></div>
+        <div id="icons" class="block__column_icons">
+          <div class="all_icons">
+            <div id="icon-1" class="icon" style="transition: transform 0.2s;"> <a href="https://www.tiktok.com/@kinowatch_001?lang=ru-RU" target="_blank"><img src="img/tiktok.ico" alt="ТикТок"></a> </div>
+          <div id="icon-2" class="icon" style="transition: transform 0.2s;"> <a href="https://vk.com/kinowatch_bot" target="_blank"><img class="bee-center bee-fixedwidth" src="img/vk.ico" alt="Вконтакте"></a> </div>
+          <div id="icon-3" class="icon" style="transition: transform 0.2s;"> <a href="https://ok.ru/group/58259070976148" target="_blank"><img class="bee-center bee-fixedwidth" src="img/ok.ico" alt="Одноклассники"></a> </div>
+          <div id="icon-4" class="icon" style="transition: transform 0.2s;"> <a href="https://www.instagram.com/kinowatch_001/" target="_blank"><img class="bee-center bee-fixedwidth" src="img/insta.ico" alt="Инстаграм"></a> </div>
+          <div id="icon-5" class="icon" style="transition: transform 0.2s;"> <a href="https://www.youtube.com/@kinowatch_001/featured" target="_blank"><img class="bee-center bee-fixedwidth" src="img/yt.ico" alt="YouTube"></a> </div>
+          <div id="icon-6" class="icon" style="transition: transform 0.2s;"> <a href="https://t.me/SearchWatch_bot" target="_blank"><img class="bee-center bee-fixedwidth" src="img/tg.ico" alt="Телеграм"></a> </div>
+          </div>
+          
+        </div>
+        
+        <div id="left_down" class="block__column__down">
+          <div id="ppb-1" class="ppb"> <a href="https://www.instagram.com/microgreenalmatykz9/" target="_blank"><img class="bee-center bee-fixedwidth bee-fullwidthOnMobile" src="img/300x780.png" style="position: inherit;width: 100%;height: auto;" alt="Инстаграм"></a> </div>
+        </div>
+      </div>
+      <div id="container" class="block__column__center">
+       <div class="container" id="container"></div>
+
+      </div>
+      <div class="block__column__right">
+        <div id="ppb-2" class="ppb"> <a href="https://www.instagram.com/microgreenalmatykz9/" target="_blank"><img class="bee-center bee-fixedwidth bee-fullwidthOnMobile" src="img/300x860.png" alt=""></a> </div>
+        <div id="ppb-3" class="ppb"> <a href="https://www.instagram.com/microgreenalmatykz9/" target="_blank"><img class="bee-center bee-fixedwidth bee-fullwidthOnMobile" src="img/300x860.png" alt=""></a> </div>
+      </div>
+    </div>
+    <footer id="footer" class="footer">
+      <div id="ppb-4" class="ppb"><a href="https://www.instagram.com/microgreenalmatykz9/" target="_blank"><img class="bee-center bee-fixedwidth bee-fullwidthOnMobile" src="img/500х200.png" alt=""></a></div>
+      <div id="ppb-5" class="ppb"> <a href="https://www.instagram.com/microgreenalmatykz9/" target="_blank"><img class="bee-center bee-fixedwidth bee-fullwidthOnMobile" src="img/500х200.png" alt=""></a> </div>
+      <div id="ppb-6" class="ppb"> <a href="https://www.instagram.com/microgreenalmatykz9/" target="_blank"><img class="bee-center bee-fixedwidth bee-fullwidthOnMobile" src="img/500х200.png" alt=""></a> </div>
+      <div id="ppb-7" class="ppb"> <a href="https://www.instagram.com/microgreenalmatykz9/" target="_blank"><img class="bee-center bee-fixedwidth bee-fullwidthOnMobile" src="img/500х200.png" alt=""></a> </div>
+      <div id="ppb-8" class="ppb"> <a href="https://www.instagram.com/microgreenalmatykz9/" target="_blank"><img class="bee-center bee-fixedwidth bee-fullwidthOnMobile" src="img/500х200.png" alt=""></a> </div>
+      <div id="ppb-9" class="ppb"> <a href="https://www.instagram.com/microgreenalmatykz9/" target="_blank"><img class="bee-center bee-fixedwidth bee-fullwidthOnMobile" src="img/500х200.png" alt=""></a> </div>
+    </footer>
+  </div>
+  
+<div class="branding"></div>
+<div class="sticker"></div>
 <script type="text/javascript">
 function handleResponse(response) {
   // Обработка полученного ответа от Google Apps Script
@@ -157,74 +211,6 @@ for (var i = 0; i < searchParams.length; i++) {
     window.onload = makeRequest;
 
 </script>
-    
-<!-- <script type="text/javascript">
-// Получаем параметр 'listName' из текущего URL
-var currentURL = window.location.href;
-var url = new URL(currentURL);
-var searchParams = url.search.slice(1).split('&');
-var listName = null;
-for (var i = 0; i < searchParams.length; i++) {
-  var param = searchParams[i].split('=');
-  if (param[0] === 'listName') {
-    listName = param[1];
-    console.log(listName);
-    break;
-  }
-}
-
-// Проверяем, есть ли параметр 'listName' в URL
-if (listName) {
-  // Формируем URL для Google Apps Script с параметром 'listName'
-  var scriptURL = 'https://script.google.com/macros/s/AKfycbw2hdsepGfDiOVJQp2YqJfQBS21X2uzDA-5zg02hdLQ3YQu-W_myWs_Q28QdR_BUVE/exec?listName=' + encodeURIComponent(listName);
-
-  // Отправить параметр в Google Script
-fetch(scriptURL)
-  .then(function(response) {
-    return response.json(); // Предположим, что скрипт возвращает JSON
-  })
-  .then(function(data) {
-    // Цикл для парсинга данных и создания HTML
-      
-     var html = '';
-      // var data = JSON.parse(data);
-      console.log(data.length);
-      console.log(data);
-for (var key in data) {
-  var id = data[key][0];
-  var id_kp = data[key][1];
-  var movieTitle = data[key][3];
-  var year = data[key][4];
-  var quality = data[key][5];
-  var kpRating = data[key][6];  
-  var imdbRating = data[key][7];
-  var imageUrl = "https://st.kp.yandex.net/images/film_iphone/iphone360_"+id_kp+".jpg";
-  var urlMovie = "https://eltigre001kz.github.io/player.html?video=//harsh-building.cdnmovies-stream.online/content/"+id+"/iframe?domain=searchwatch.bot";
-  // Генерируем HTML для каждой записи
-  var movieHTML = '<div class="poster">' +
-                   '<a href="' + urlMovie + '" target="_blank"><img src="' + imageUrl + '" alt="' + movieTitle + '">' +
-                  '<div class="overlay">' +
-                  '<div class="title">' + movieTitle + ' ('+year+'/'+quality+')</div>' +
-                  '<div class="rating">⭐️ KP: ' + kpRating + ' / IMDb: ' + imdbRating + '</div>' +
-                  '</div>' +
-                  '</a>' +
-                  '</div>';
-
-  // Вставляем сгенерированный HTML в элемент с id "container"
-  document.getElementById('container').innerHTML += movieHTML;
-}
-   
-console.log(movieHTML);
-    // Вставка HTML в элемент с id "container"
-    // document.getElementById('container').innerHTML = html;
-  })
-  .catch(function(error) {
-    console.error('Произошла ошибка:', error);
-  });
-
-    
-}
-    
-</script> -->
 </body>
+
 </html>
