@@ -105,17 +105,17 @@ function handleResponse(response) {
   // Обработка полученного ответа от Google Apps Script
   console.log(response);
     var html = '';
-      // var data = JSON.parse(data);
-      console.log(data.length);
-      console.log(data);
-for (var key in data) {
-  var id = data[key][0];
-  var id_kp = data[key][1];
-  var movieTitle = data[key][3];
-  var year = data[key][4];
-  var quality = data[key][5];
-  var kpRating = data[key][6];  
-  var imdbRating = data[key][7];
+      // var data = JSON.parse(response);
+      console.log(response.length);
+      console.log(response);
+for (var key in response) {
+  var id = response[key][0];
+  var id_kp = response[key][1];
+  var movieTitle = response[key][3];
+  var year = response][4];
+  var quality = response[key][5];
+  var kpRating = response[key][6];  
+  var imdbRating = response[key][7];
   var imageUrl = "https://st.kp.yandex.net/images/film_iphone/iphone360_"+id_kp+".jpg";
   var urlMovie = "https://eltigre001kz.github.io/player.html?video=//harsh-building.cdnmovies-stream.online/content/"+id+"/iframe?domain=searchwatch.bot";
   // Генерируем HTML для каждой записи
