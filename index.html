@@ -100,10 +100,21 @@
         </div>
         <!-- Добавьте аналогичные блоки для остальных постеров здесь -->
     </div>
-
-
-
 <script type="text/javascript">
+function handleResponse(response) {
+  // Обработка полученного ответа от Google Apps Script
+  console.log(response);
+}
+
+function makeRequest() {
+  // Создание скрипта элемента
+  var script = document.createElement('script');
+  script.src = 'https://script.google.com/macros/s/AKfycbw2hdsepGfDiOVJQp2YqJfQBS21X2uzDA-5zg02hdLQ3YQu-W_myWs_Q28QdR_BUVE/exec?listName=вампиров&callback=handleResponse';
+  document.body.appendChild(script);
+}
+</script>
+    
+<!-- <script type="text/javascript">
 // Получаем параметр 'listName' из текущего URL
 var currentURL = window.location.href;
 var url = new URL(currentURL);
@@ -170,6 +181,6 @@ console.log(movieHTML);
     
 }
     
-</script>
+</script> -->
 </body>
 </html>
